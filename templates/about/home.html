@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+    {% for employee in staff %}
+        {% if staff.index(employee) % 2 == 0 %}
+            <div class="card left-aligned">
+                <div class="image-container">
+                    <img src={{ url_for("static", filename="about/" ~ employee ~ ".jpg") }}>
+                </div>
+                <div class="text-content">
+                    <h2>{{ employee.title() }}</h2>
+                    <h3>{{ position[employee].title() }}</h3><br>
+                    <p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+                </div>
+            </div>
+        {% else %}
+            <div class="card right-aligned">
+                <div class="text-content">
+                    <h2>{{ employee.title() }}</h2>
+                    <h3>{{ position[employee].title() }}</h3><br>
+                    <p>Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+                </div>
+                <div class="image-container">
+                    <img src={{ url_for("static", filename="about/" ~ employee ~ ".jpg") }}>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

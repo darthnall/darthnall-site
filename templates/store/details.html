@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container">
+    <div class="product-image">
+        <img src={{ url_for("static", filename="logo.jpg") }}/>
+    </div>
+    <div class="product-name left-aligned">
+        <p>Name: {{  product.name()  }}</p>
+        <p>ID: {{  product.id()  }}</p>
+    </div>
+    <div class="product-description">
+        <h2>Product Details:</h2>
+        <table id="description_table">
+            <tr>
+                <td>Name</td>
+                <td>{{ product.name() }}
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>{{ product.price() }}
+            </tr>
+            <tr>
+                <td>Date Purchased</td>
+                <td>{{ product.dop() }}
+            </tr>
+            <tr>
+                <td>Build ID</td>
+                <td>{{ product.build_id() }}
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock content %}
